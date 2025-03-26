@@ -3,6 +3,6 @@ A working screen for the keycube
 
 
 ## Contributors
-Titouan Fréquelin @maximecjr
+Titouan Fréquelin @tfrequelt
 
-Maxime Conjard @tfrequelt
+Maxime Conjard @maximecjr
