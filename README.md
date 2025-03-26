@@ -2,6 +2,7 @@
 A working screen for the keycube
 
 
-## Contributor
+## Contributors
 Titouan Fréquelin @maximecjr
+
 Maxime Conjard @tfrequelt
