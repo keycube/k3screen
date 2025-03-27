@@ -52,6 +52,15 @@ text_area = label.Label(terminalio.FONT, text=text, color=0xFFFFFF)
 text_group.append(text_area)  # Sous-groupe pour le texte et l'échelle
 splash.append(text_group)
 
+# Configuration des boutons
+button1 = digitalio.DigitalInOut(board.GP15)
+button1.direction = digitalio.Direction.INPUT
+button1.pull = digitalio.Pull.UP  # Bouton en pull-up
+
+button2 = digitalio.DigitalInOut(board.GP14)
+button2.direction = digitalio.Direction.INPUT
+button2.pull = digitalio.Pull.UP  # Bouton en pull-up
+
 # Boucle pour faire clignoter toutes les 3 secondes
 while True:
     # 1. Changer les couleurs (fond et rectangle en rouge, texte en noir)
@@ -67,3 +76,17 @@ while True:
     text_area.color = 0xFFFFFF   # Texte jaune
     display.refresh()
     time.sleep(3)
+    
+    if button2.value:  # Appui sur bouton 2 et mode vert
+        color_palette[0] = 0x01370a  # Vert sombre
+        inner_palette[0] = 0x00da25  # Vert
+        text_area.color = 0x000000   # Texte noir
+        
+        time.sleep(3)  # Débounce
+        
+    if button1.value:  # Appui sur bouton 2 et mode vert
+        color_palette[0] = 0x62006a  # Violet sombre
+        inner_palette[0] = 0xd700e8  # Violet
+        text_area.color = 0xFFFFFF   # Texte jaune
+        
+        time.sleep(3)  # Débounce
