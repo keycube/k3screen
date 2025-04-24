@@ -1,0 +1,42 @@
+import board
+import busio
+import digitalio
+import displayio
+import adafruit_sharpmemorydisplay
+from adafruit_display_text import bitmap_label
+import terminalio
+import time
+
+# --- Initialisation SPI et écran ---
+spi = busio.SPI(clock=board.GP10, MOSI=board.GP11)
+cs = digitalio.DigitalInOut(board.GP13)
+cs.direction = digitalio.Direction.OUTPUT
+
+# Configuration de l'écran Sharp Memory Display
+display = adafruit_sharpmemorydisplay.SharpMemoryDisplay(spi, cs, width=400, height=240, baudrate=2000000)
+
+# --- Effacer l'écran ---
+display.fill(0)  # Mettre tout en noir
+display.show()
+
+# --- Création d'un affichage ---
+splash = displayio.Group()
+
+# Créer une zone de texte "Hello World"
+text_area = bitmap_label.Label(terminalio.FONT, text="Hello World", color=1, x=100, y=120)
+
+# Ajouter le texte au groupe d'affichage
+splash.append(text_area)
+
+# Mettre le groupe sur l’écran
+display.root_group = splash
+display.show()
+
+while True:
+    # Attendre 1 seconde
+    time.sleep(10)
+    display.fill(1)
+    display.show()
+    time.sleep(10)
+    display.fill(0) 
+    display.show()

@@ -1,0 +1,27 @@
+This repository is dedicated to the screen of the keycube.
+
+software:
+    the langage is CircuitPython 9.2.3
+
+hardware:
+    The screen used is "Adafruit SHARP Memory Display Breakout - 2.7" 400x240 Monochrome"
+    and we code on a "Raspberry pi pico w".
+
+
+the structure of the code:
+    the file "code" is launch in first. in this file you can find the setup of the screen. The font and a line to launch another function in another file.
+    the file "home" is used to connect in the keycube. It start by display some basic text like "enter your name" and it allow the user to type his name. 
+    you can also display some previous names wich were already register in a text file called users. Then when the user press enter it display another text with his name.
+    The file "login" is used to register or recover the name of the user. 
+    the file "constants" take all the constants that will be used in the project.
+    The file "ExImg"  show you how to easily display an image on screen. 
+    The file "ExFont" show you how to easily change the font.
+
+link beetween hardware and software:
+    the pin used are : GP10 for the clock, GP11 for the mosi, GP13 for the cs. (you can modify them in the file "code").
+
+library:
+    we use the "Adafruit_CircuitPython_Display_Text" to display text.
+
+Aditional information:
+    if you want to add an image it have to be in ".bmp" format.
